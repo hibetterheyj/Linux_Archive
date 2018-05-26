@@ -34,10 +34,6 @@ ssh-keygen -t rsa -C "hyj1997wshhz@163.com"
 cat /home/philhe/.ssh/id_rsa.pub
 ```
 
-
-
-
-
 reference link: https://blog.csdn.net/qq_26990831/article/details/51857399
 
 
