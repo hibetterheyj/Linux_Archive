@@ -1,0 +1,60 @@
+## Basic Linux Improvement
+
+---
+
+> Maybe a little similar to the last note!
+
+- Update and Uninstall | 更新与卸载
+
+    sudo apt-get upgrade
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    sudo apt autoremove
+
+- Install Unity Tweak Tool
+
+    sudo apt install unity-tweak-tool
+
+- Improve Ubuntu's Appeal 调整与提升Ubuntu的感官体验
+
+numix theme and icon | numix主题与软件包
+
+    sudo add-apt-repository ppa:numix/ppa
+    sudo apt-get update
+    sudo apt-get install numix-gtk-theme numix-icon-theme-circle
+
+- **Change Where App Menus Show Up | 改变应用名字显示位置！**
+- **Change Resolution**
+
+One-time
+
+```
+sudo vim /etc/default/grub
+搜索 #1GRUB_GFXMODE=640x480
+修改640x480并且去掉#成你想要的分辨率如1024x768
+最后 sudo update-grub
+reboot
+```
+
+vim/vi: http://www.runoob.com/linux/linux-vim.html
+
+still some problem:
+
+```
+none of the selected modes were compatible with the possible modes:
+Trying modes for CRTC 622
+CRTC 622: trying mode 1024x768@76Hz with output at 800x600@75Hz (pass 0)
+CRTC 622: trying mode 1024x768@76Hz with output at 800x600@75Hz (pass 1)
+```
+
+references:
+
+1. https://askubuntu.com/questions/681821/monitor-resolution-reseted-after-reboot-one-monitor
+2. https://jingyan.baidu.com/article/d45ad148a269b969552b80e4.html
+3. https://blog.csdn.net/ghostyusheng/article/details/52641843
+4. https://blog.csdn.net/u013764485/article/details/78007370
+
+[**解决Nvidia显卡的电脑安装Ubuntu及驱动的各种坑**](https://blog.csdn.net/ysy950803/article/details/78507892)
+
+**https://blog.csdn.net/cosmoshua/article/details/76644029**
+
