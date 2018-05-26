@@ -40,7 +40,7 @@ reference link: https://blog.csdn.net/qq_26990831/article/details/51857399
 
 Open Ubuntu to install  Chromium freely.
 
-- Install SougouPInyin
+- **Install SougouPInyin**
 
 Open the folder where the package is, and click twice!
 
