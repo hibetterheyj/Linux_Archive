@@ -36,5 +36,21 @@ cat /home/philhe/.ssh/id_rsa.pub
 
 reference link: https://blog.csdn.net/qq_26990831/article/details/51857399
 
+- **Install Chromium**
+
+Open Ubuntu to install  Chromium freely.
+
+- Install SougouPInyin
+
+Open the folder where the package is, and click twice!
+
+reference link: 
+
+- https://www.cnblogs.com/darklights/p/7722861.html
+- https://pinyin.sogou.com/linux/
+- https://pinyin.sogou.com/linux/help.php
+
+
+
 
 
