@@ -56,7 +56,7 @@ One-time
 ```
 sudo vim /etc/default/grub
 搜索 #1GRUB_GFXMODE=640x480
-修改640x480并且去掉#成你想要的分辨率如1024x768
+修改640x480并且去掉#成你想要的分辨率如1600x900
 最后 sudo update-grub
 reboot
 ```
