@@ -44,6 +44,8 @@ numix theme and icon | numix主题与软件包
 - **Install Chromium**
 - **Install Sougoupinyin**
 - **Install ROS!**
+- **Install Nixnote(For evernote)**
+- **Install Shadowsocks**
 
 ---
 
@@ -86,3 +88,5 @@ references:
 - `aspi_osi=linux nomodeset` related
 
 https://zhidao.baidu.com/question/431573582369695444.html 方法二，解决方法同上
+
+- Change Brightness 修改亮度

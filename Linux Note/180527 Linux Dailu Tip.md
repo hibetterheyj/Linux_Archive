@@ -1,4 +1,4 @@
-### 180527 Linux Dailu Tip
+### 180527 Linux Daily Tip
 
 ---
 
@@ -46,11 +46,25 @@ Open the folder where the package is, and click twice!
 
 reference link: 
 
-- https://www.cnblogs.com/darklights/p/7722861.html
-- https://pinyin.sogou.com/linux/
-- https://pinyin.sogou.com/linux/help.php
+1. https://www.cnblogs.com/darklights/p/7722861.html
+2. https://pinyin.sogou.com/linux/
+3. https://pinyin.sogou.com/linux/help.php
 
+- Install Nixnote
 
+Click Twice to open the installer
 
+reference link: https://sourceforge.net/projects/nevernote/?source=typ_redirect
 
+- **Install Shadowsocks**
+
+https://blog.csdn.net/ddyyll988/article/details/54566201
+
+https://addons.mozilla.org/zh-CN/firefox/addon/foxyproxy-standard/
+
+推荐谷歌访问助手：http://www.ggfwzs.com/
+
+- **Install Tim Related**
+
+reference: https://github.com/askme765cs/Wine-QQ-TIM
 
