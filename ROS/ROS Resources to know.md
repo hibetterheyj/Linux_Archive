@@ -7,9 +7,10 @@ install recommended official wiki or chinese version:
 - http://wiki.ros.org/kinetic/Installation
 - http://wiki.ros.org/cn/kinetic/Installation
 
-**Linux to know:**
+**Preparation**
 
-http://www.ee.surrey.ac.uk/Teaching/Unix/
+- Linux: http://www.ee.surrey.ac.uk/Teaching/Unix/
+- Cmake: https://github.com/Akagi201/learning-cmake
 
 **Zhihu:**
 
