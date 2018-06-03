@@ -1,6 +1,10 @@
-## git learning
+## Git Learning Course: How to use git and github
 
 ---
+
+> 如何使用 Git 和 GitHub：[课程地址](https://cn.udacity.com/course/how-to-use-git-and-github--ud775)
+>
+> 完结于20180603
 
 ### 发现区别 | git diff
 
@@ -59,9 +63,19 @@ $ git branch
 * master
 $ git branch <new branch>
 $ git checkout <new branch> 确认new branch分支的状态，并转移至new branch分支
+$ git checkout -b <new branch> 两步并为一步
+
+$ git log --graph --oneline master <other branch>
+$ git push origin <new branch> 直接上传
+$ git show 可以查看某一次commit与其父级的区别
 ```
 
+[个性化你的 Git Log 的输出格式](https://ruby-china.org/topics/939)
 
+推荐了两个绘图工具
+
+- [gliffy](https://www.gliffy.com/)
+- [yUML](http://yuml.me/diagram/activity/draw)
 
 
 
@@ -99,4 +113,3 @@ $ git pull origin master
 ```
 
 ？？？Fast-forward merge
-
