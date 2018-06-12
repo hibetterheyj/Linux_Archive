@@ -17,5 +17,6 @@ reference link:
 - **Apply Screenshot**
 
 ```
-gnome screenshot
+gnome screenshot －a
+自由选定屏幕截图
 ```
