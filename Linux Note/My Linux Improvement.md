@@ -45,7 +45,9 @@ numix theme and icon | numix主题与软件包
 - **Install Sougoupinyin**
 - **Install ROS!**
 - **Install Nixnote(For evernote)**
-- **Install Shadowsocks**
+- **Install Shadowsocks-qt5**
+- **Install zsh**
+- **Install tree**
 
 ---
 
