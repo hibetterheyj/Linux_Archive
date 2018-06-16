@@ -1,6 +1,8 @@
-### 180527 Linux Daily Tip
+### 1805 Linux Daily Tip
 
 ---
+
+#### <u>180527</u>
 
 - **Install Typora**
 
@@ -67,4 +69,27 @@ https://addons.mozilla.org/zh-CN/firefox/addon/foxyproxy-standard/
 - **Install Tim Related**
 
 reference: https://github.com/askme765cs/Wine-QQ-TIM
+
+------
+
+#### <u>180531</u>
+
+- **Install Tree**
+
+`sudo apt-get install tree`
+
+- **Learning ROS**
+
+reference link: 
+
+1. gitbook: https://sychaichangkun.gitbooks.io/ros-tutorial-icourse163/content/
+2. github: https://github.com/DroidAITech/ROS-Academy-for-Beginners
+3. mooc: https://www.icourse163.org/course/ISCAS-1002580008#/info
+
+- **Apply Screenshot**
+
+```
+gnome screenshot －a
+自由选定屏幕截图
+```
 

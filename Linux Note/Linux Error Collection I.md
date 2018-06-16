@@ -20,7 +20,7 @@ E: Unable to lock the administration directory (/var/lib/dpkg/), is another proc
 包冲突或者是没卸载干净造成的。解决办法如下：
 
 ```
-#cd /var/lib/dpkg  
+# cd /var/lib/dpkg  
 # mv info/ info-bak  
 # mkdir info  
 # apt-get update  

@@ -42,12 +42,14 @@ numix theme and icon | numix主题与软件包
 - **Install Typora**
 - **Install git and add ssh**
 - **Install Chromium**
-- **Install Sougoupinyin**
+- **Install Sougoupinyin**s
 - **Install ROS!**
 - **Install Nixnote(For evernote)**
 - **Install Shadowsocks-qt5**
-- **Install zsh**
 - **Install tree**
+- **Install Wiznote**
+- **Install thefuck**
+- **Install on-my-zsh**
 
 ---
 

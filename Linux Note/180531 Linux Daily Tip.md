@@ -20,3 +20,4 @@ reference link:
 gnome screenshot －a
 自由选定屏幕截图
 ```
+
