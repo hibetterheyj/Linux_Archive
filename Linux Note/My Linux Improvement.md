@@ -4,8 +4,9 @@
 
 ```
 My Linux Update Log:
-20180526 First Setup
-20180527 install ROS and related software!
+180526 First Setup
+180527 install ROS and related software!
+180616 adding other installation record
 ```
 
 ---

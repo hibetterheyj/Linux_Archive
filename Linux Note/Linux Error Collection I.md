@@ -1,5 +1,11 @@
 ## Linux Error Collection I
 
+```
+Update Log:
+1806 first setup
+180616 adding 2
+```
+
 ---
 
 ### I. when install something
