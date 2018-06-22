@@ -38,3 +38,13 @@ E: Unable to lock the administration directory (/var/lib/dpkg/), is another proc
 # mv info-bak/ info
 ```
 
+### III. 处理软件包 initramfs-tools (--configure)时出错
+
+```
+dpkg: 处理软件包 initramfs-tools (--configure)时出错：
+ 子进程 已安装 post-installation 脚本 返回错误状态 1
+ 在处理时有错误发生：
+ initramfs-tools
+```
+
+解决方法：https://www.linuxidc.com/Linux/2014-11/109713.htm
