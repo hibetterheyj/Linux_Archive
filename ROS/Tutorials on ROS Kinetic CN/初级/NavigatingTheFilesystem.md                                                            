@@ -1,4 +1,8 @@
-## ROS文件系统介绍
+## ROS文件系统介绍 | NavigatingTheFilesystem
+
+---
+
+http://wiki.ros.org/cn/ROS/Tutorials/NavigatingTheFilesystem
 
 ---
 
@@ -59,7 +63,7 @@ YOUR_INSTALL_PATH/share/roscpp
 
 ```
 /opt/ros/groovy/share/roscpp
-% 我的情况如下：
+% 上面为早版本，我的情况如下：
 /opt/ros/kinetic/share/roscpp
 ```
 
@@ -96,8 +100,9 @@ $ echo $ROS_PACKAGE_PATH
 
 你的[ROS_PACKAGE_PATH](http://wiki.ros.org/ROS/EnvironmentVariables#ROS_PACKAGE_PATH)环境变量应该包含那些保存有ROS软件包的路径，并且每个路径之间用冒号分隔开来。一个典型的[ROS_PACKAGE_PATH](http://wiki.ros.org/ROS/EnvironmentVariables#ROS_PACKAGE_PATH)环境变量如下： 
 
-```
-/opt/ros/groovy/base/install/share:/opt/ros/groovy/base/install/stacks
+```bash
+$ echo $ROS_PACKAGE_PATH
+/opt/ros/kinetic/share
 ```
 
 跟其他路径环境变量类似，你可以在[ROS_PACKAGE_PATH](http://wiki.ros.org/ROS/EnvironmentVariables#ROS_PACKAGE_PATH)中添加更多其它路径，每条路径使用冒号':'分隔。 

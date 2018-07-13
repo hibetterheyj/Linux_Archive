@@ -37,9 +37,21 @@ $ gedit ~/.zshrc
 
 插件：https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
 
+```BASH
+zsh 配置 ROS
+$ echo "source /opt/ros/indigo/setup.zsh" >> ~/.zshrc
+$ source ~/.zshrc
+```
+
+ROS 1 ---- 在zsh中安装ros: https://blog.csdn.net/qq_23225073/article/details/70137981
+
 官网：http://ohmyz.sh/
 
-中文介绍：https://www.jianshu.com/p/ceb3f3bad95b https://blog.csdn.net/hsd2012/article/details/54292192
+中文介绍：
+
+https://www.jianshu.com/p/ceb3f3bad95b 
+
+https://blog.csdn.net/hsd2012/article/details/54292192
 
 - **Install powerline for zsh/vim**（存疑）
 

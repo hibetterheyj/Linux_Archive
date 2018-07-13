@@ -2,10 +2,16 @@
 
 ---
 
+**Wiki**
+
 install recommended official wiki or chinese version:
 
 - http://wiki.ros.org/kinetic/Installation
 - http://wiki.ros.org/cn/kinetic/Installation
+
+English Version Recommended
+
+- http://wiki.ros.org/ROS/Tutorials
 
 **Preparation**
 
@@ -26,5 +32,14 @@ github: https://github.com/DroidAITech/ROS-Academy-for-Beginners
 
 mooc: https://www.icourse163.org/course/ISCAS-1002580008#/info
 
+**Related Website**:
 
+- https://www.openrobotics.org/
 
+**zsh 配置 ROS**
+
+`$ echo "source /opt/ros/indigo/setup.zsh" >> ~/.zshrc`
+
+`$ source ~/.zshrc`
+
+博文：[ROS 1 ---- 在zsh中安装ros](https://blog.csdn.net/qq_23225073/article/details/70137981)
