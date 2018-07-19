@@ -12,18 +12,11 @@ $ roscore
 
 If you left roscore running from the last tutorial, you may get the error message:
 
-- 
-
-  
-
-  
-
-  ```
+- ```
   roscore cannot run as another roscore/master is already running. 
   Please kill other roscore/master processes before relaunching
   ```
 
-  
 
 This is fine. Only one roscore needs to be running.
 
@@ -43,26 +36,12 @@ We'll also need something to drive the turtle around with. Please run **in a new
 $ rosrun turtlesim turtle_teleop_key
 ```
 
-- 
-
-  
-
-  
-
-  
-
-  
-
-  ```
-  [ INFO] 1254264546.878445000: Started node [/teleop_turtle], pid [5528], bound on [aqy], xmlrpc port [43918], tcpros port [55936], logging to [~/ros/ros/log/teleop_turtle_5528.log], using [real] time
-  Reading from keyboard
-  ---------------------------
-  Use arrow keys to move the turtle.
-  ```
-
-  
-
-  
+```
+[ INFO] 1254264546.878445000: Started node [/teleop_turtle], pid [5528], bound on [aqy], xmlrpc port [43918], tcpros port [55936], logging to [~/ros/ros/log/teleop_turtle_5528.log], using [real] time
+Reading from keyboard
+---------------------------
+Use arrow keys to move the turtle.
+```
 
 Now you can use the arrow keys of the keyboard to drive the turtle around. If you can not drive the turtle **select the terminal window of the turtle_teleop_key** to make sure that the keys that you type are recorded.
 
@@ -80,18 +59,10 @@ Note: If you're using `electric` or earlier, `rqt` is not available. Use `rxgrap
 
 `rqt_graph` creates a dynamic graph of what's going on in the system. rqt_graph is part of the `rqt` package. Unless you already have it installed, run:
 
-- 
-
-  
-
-  
-
-  ```
-  $ sudo apt-get install ros-<distro>-rqt
-  $ sudo apt-get install ros-<distro>-rqt-common-plugins
-  ```
-
-  
+```
+$ sudo apt-get install ros-<distro>-rqt
+$ sudo apt-get install ros-<distro>-rqt-common-plugins
+```
 
 replacing <distro> with the name of your [ROS distribution](http://wiki.ros.org/Distributions) (e.g. indigo, jade, kinetic, lunar ...)
 
@@ -119,32 +90,14 @@ You can use the help option to get the available sub-commands for `rostopic`
 $ rostopic -h
 ```
 
-- 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  ```
-  rostopic bw     display bandwidth used by topic
-  rostopic echo   print messages to screen
-  rostopic hz     display publishing rate of topic    
-  rostopic list   print information about active topics
-  rostopic pub    publish data to topic
-  rostopic type   print topic type
-  ```
-
-  
-
-  
+```
+rostopic bw     display bandwidth used by topic
+rostopic echo   print messages to screen
+rostopic hz     display publishing rate of topic    
+rostopic list   print information about active topics
+rostopic pub    publish data to topic
+rostopic type   print topic type
+```
 
 Or pressing `tab` key after `rostopic` prints the possible sub-commands:
 
@@ -228,8 +181,6 @@ Now let's look at `rqt_graph` again. Press the refresh button in the upper-left 
 
 ![rqt_graph_echo.png](http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics?action=AttachFile&do=get&target=rqt_graph_echo.png)
 
- 
-
 ### Using rostopic list
 
 `rostopic list` returns a list of all topics currently subscribed to and published.
@@ -252,10 +203,6 @@ Options:
   -s                    list only subscribers
 ```
 
-
-
-
-
 For `rostopic list` use the **verbose** option:
 
 ```
@@ -266,89 +213,21 @@ This displays a verbose list of topics to publish to and subscribe to and their 
 
 *For ROS Hydro and later,*
 
-- 
+```
+Published topics:
+ * /turtle1/color_sensor [turtlesim/Color] 1 publisher
+ * /turtle1/cmd_vel [geometry_msgs/Twist] 1 publisher
+ * /rosout [rosgraph_msgs/Log] 2 publishers
+ * /rosout_agg [rosgraph_msgs/Log] 1 publisher
+ * /turtle1/pose [turtlesim/Pose] 1 publisher
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  ```
-  Published topics:
-   * /turtle1/color_sensor [turtlesim/Color] 1 publisher
-   * /turtle1/cmd_vel [geometry_msgs/Twist] 1 publisher
-   * /rosout [rosgraph_msgs/Log] 2 publishers
-   * /rosout_agg [rosgraph_msgs/Log] 1 publisher
-   * /turtle1/pose [turtlesim/Pose] 1 publisher
-  
-  Subscribed topics:
-   * /turtle1/cmd_vel [geometry_msgs/Twist] 1 subscriber
-   * /rosout [rosgraph_msgs/Log] 1 subscriber
-  ```
-
-  
-
-*For ROS Groovy and earlier,*
-
-- 
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  ```
-  Published topics:
-   * /turtle1/color_sensor [turtlesim/Color] 1 publisher
-   * /turtle1/command_velocity [turtlesim/Velocity] 1 publisher
-   * /rosout [roslib/Log] 2 publishers
-   * /rosout_agg [roslib/Log] 1 publisher
-   * /turtle1/pose [turtlesim/Pose] 1 publisher
-  
-  Subscribed topics:
-   * /turtle1/command_velocity [turtlesim/Velocity] 1 subscriber
-   * /rosout [roslib/Log] 1 subscriber
-  ```
-
-  
+Subscribed topics:
+ * /turtle1/cmd_vel [geometry_msgs/Twist] 1 subscriber
+ * /rosout [rosgraph_msgs/Log] 1 subscriber
+```
 
 ## ROS Messages
 
 Communication on topics happens by sending ROS **messages** between nodes. For the publisher (`turtle_teleop_key`) and subscriber (`turtlesim_node`) to communicate, the publisher and subscriber must send and receive the same **type** of message. This means that a topic **type** is defined by the message **type** published on it. The **type** of the message sent on a topic can be determined using `rostopic type`.
-
-
-
 
 
