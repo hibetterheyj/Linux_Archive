@@ -10,16 +10,6 @@ Let's start by making sure that we have roscore running, **in a new terminal**:
 $ roscore
 ```
 
-If you left roscore running from the last tutorial, you may get the error message:
-
-- ```
-  roscore cannot run as another roscore/master is already running. 
-  Please kill other roscore/master processes before relaunching
-  ```
-
-
-This is fine. Only one roscore needs to be running.
-
 ### turtlesim
 
 For this tutorial we will also use turtlesim. Please run **in a new terminal**:
@@ -60,8 +50,8 @@ Note: If you're using `electric` or earlier, `rqt` is not available. Use `rxgrap
 `rqt_graph` creates a dynamic graph of what's going on in the system. rqt_graph is part of the `rqt` package. Unless you already have it installed, run:
 
 ```
-$ sudo apt-get install ros-<distro>-rqt
-$ sudo apt-get install ros-<distro>-rqt-common-plugins
+$ sudo apt-get install ros-kinetic-rqt
+$ sudo apt-get install ros-kinetic-rqt-common-plugins
 ```
 
 replacing <distro> with the name of your [ROS distribution](http://wiki.ros.org/Distributions) (e.g. indigo, jade, kinetic, lunar ...)
@@ -229,5 +219,65 @@ Subscribed topics:
 ## ROS Messages
 
 Communication on topics happens by sending ROS **messages** between nodes. For the publisher (`turtle_teleop_key`) and subscriber (`turtlesim_node`) to communicate, the publisher and subscriber must send and receive the same **type** of message. This means that a topic **type** is defined by the message **type** published on it. The **type** of the message sent on a topic can be determined using `rostopic type`.
+
+`rostopic type` returns the message type of any topic being published.
+
+Usage:
+
+```
+rostopic type [topic]
+```
+
+*For ROS Hydro and later,*
+
+try:
+
+```
+$ rostopic type /turtle1/cmd_vel
+geometry_msgs/Twist
+$ rosmsg show geometry_msgs/Twist
+geometry_msgs/Vector3 linear
+  float64 x
+  float64 y
+  float64 z
+geometry_msgs/Vector3 angular
+  float64 x
+  float64 y
+  float64 z
+```
+
+
+
+## rostopic continued
+
+Now that we have learned about ROS **messages**, let's use rostopic with messages.
+
+### Using rostopic pub
+
+`rostopic pub` publishes data on to a topic currently advertised.
+
+Usage:
+
+```
+rostopic pub [topic] [msg_type] [args]
+```
+
+*For ROS Hydro and later,* example:
+
+```
+$ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
+```
+
+The previous command will send a single message to turtlesim telling it to move with an linear velocity of 2.0, and an angular velocity of 1.8 .
+
+
+
+
+
+
+
+
+
+
 
 
