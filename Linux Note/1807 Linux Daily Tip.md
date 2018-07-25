@@ -73,5 +73,21 @@ $ cd ~/.config/terminator/ && sudo gedit config
 1. [terminator 安装与配置](https://blog.csdn.net/ipatient/article/details/51547658)
 2. [ubuntu安装增强版终端Terminator](https://blog.csdn.net/chinabhlt/article/details/8766806)
 
+- **多个ssh生成与管理**
 
+为了举例方便，这里使用“**one**”和“**two**”两个账户。下同。
+
+```bash
+$ ssh-keygen -t rsa -C "one@gmail.com"
+
+$ ssh-keygen -t rsa -C "two@gmail.com"
+```
+
+不要一路回车，分别在第一个对话的时候输入重命名（<u>id_rsa_gitlab</u>和<u>id_rsa_github</u>），这样会生成![img](https://images2015.cnblogs.com/blog/896608/201609/896608-20160906141211848-1361958749.png)两份包含私钥和公钥的4个文件。
+
+ 
+
+**注1：一定要在~/.ssh路径下运行命令行，不然生成的文件不会出现在当前目录**
+
+参考：https://www.cnblogs.com/xjnotxj/p/5845574.html
 
