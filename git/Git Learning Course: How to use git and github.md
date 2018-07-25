@@ -34,7 +34,7 @@ $ ls -a 列出隐藏文件，即可发现`.git`文件
 
 
 
-### 创建修改代码库
+### 创建修改代码库ose_ekf/CMakeLists.txt:6 (pkg_check_modules
 
 ```bash
 % 初始化文件夹
