@@ -19,7 +19,7 @@ int main()
 	method2();
 	return 0;  
 }
-
+./
 
 /*用于测试数组接收
 #include<stdio.h>
