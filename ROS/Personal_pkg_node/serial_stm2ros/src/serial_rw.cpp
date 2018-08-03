@@ -26,6 +26,7 @@ flag:3bytees 用于校正
 #include "serial/serial.h"
 
 /****************************************************************************/
+
 #define PWM_CONTROL true
 
 #if PWM_CONTROL
@@ -35,6 +36,7 @@ flag:3bytees 用于校正
 #endif
 
 #define ERROR_OUT_THRESHOLD (500)
+
 /****************************************************************************/
 
 //各数据定义
@@ -46,13 +48,13 @@ float theta, omiga, vx, vy, vz;
 int ax, ay, az;
 //识别位
 unsigned char data_terminal[3] = {0xA1, 0xA2, 0xA3};
-//创建判定字符数组 data_ok[3]
 
 /*****************************************************************************/
+
 //创建串口接受对象
 serial::Serial ros_ser;
 
-//judge proto
+//judge proto进行判定，并且使用inline内联
 inline uint32_t judgement(){
     uint8_t byte;
     uint32_t judge = 0;

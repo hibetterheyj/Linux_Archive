@@ -23,70 +23,79 @@ int32[] buttons         # the buttons measurements from a joystick
 #include <cstdio>
 #include <unistd.h>
 #include <cmath>
-
+#include <cstring>
 
 ros::Publisher send_pub;
 
 // !小车相关参数
-float vc; //velocity of center 中心速度 (m/s)
-float wc; //angle velocity of center 中心角速度 (rad/s)
+// float vc; velocity of center 中心速度 (m/s)
 //convert from motor to m_output
 //speed_motor(rpm) / reduce_ratio = m_outpit(rpm)
-float reduce_ratio; //减速比，电机内部参数
+float reduce_ratio = 19.2; //减速比，电机内部参数
 //convert from rpm to wheel_speed, wheel_ration = 2 * pi * D(m)] / 60(s/min)
 // [m_outpit(rpm) * 2 * pi * D(m)] / 60(s/min) = wheel_speed(m/s)
-float wheel_ration; //轮边系数，电机输出转速与轮速关系系数
-float half_width; //half width between left and right wheel, 2c = width (m) 半宽度
-float a; //length between CoG and rear wheel (m) 质心到后排轮子的距离
-float b; //length between CoG and front wheel (m) 质心到前排轮子的距离
+float wheel_ratio = 0.02; //轮边系数，电机输出转速与轮速关系系数
+float half_width = 0.6; //(m)half width between left and right wheel, 2c = width (m) 半宽度
+float a = 0.4; //(m) length between CoG and rear wheel (m) 质心到后排轮子的距离
+float b = 0.4; //(m) length between CoG and front wheel (m) 质心到前排轮子的距离
+ int MAX_SPEED = 4000; //电机最高转速
+    
+
+float vc; //velocity of center 中心速度 (m/s)
+float wc; //angle velocity of center 中心角速度 (rad/s)
 
 float vL, vR; //左右排纵向速度
-float rpm[2] //左右排电机转速，先左后右
-int rpm_conv[2]; //电机转速导出值
+float rpm[2]; //左右排电机转速，先左后右
+uint8_t rpm_conv[2]; //电机转速导出值
 //float vF, vB; //前后排横向速度
 //float speed_wheel[4]; //左前FL.右前FR.左后RL.右后RR各轮速
-//具体数据待确定
-half_width = 0.6 //(m)
-a = 0.4; //(m)
-b = 0.4; //(m)
-reduce_ratio = 19.2;
-wheel_ratio = 0.02;
-
 // !摇杆相关参数
-int linear_, angular_;
-double l_scale_, a_scale_;
+    int linear_ = 1;
+    int angular_ = 3; //对应摇杆
+    double l_scale_ = 2.0;
+    double a_scale_ = 2.0; //摇杆比例
 
-linear_ = 1;
-angular_ = 3;
-l_scale_ = 2;
-a_scale_ = 2;
-/*后续赋值
-    n.param("axis_linear", linear_, linear_);
-    n.param("axis_angular", angular_, angular_);
-    n.param("scale_angular", a_scale_, a_scale_);
-    n.param("scale_linear", l_scale_, l_scale_);
-*/
+//占空比与电机转速转换
+int rpm_convert(float rpm){
+    float y1; //负极限占空比
+    float y2; //静止对应占空比下限
+    float y3; //静止对应占空比上限
+    float y4; //正极限占空比
+    float k1, k2; //斜率
+    y1 = 1050.0;
+    y2 = 1413.0;
+    y3 = 1453.0;
+    y4 = 1975.0;
+    float rpm_conv;
+    if(rpm > 0) {
+        rpm_conv = (y4 - y3)/MAX_SPEED + y3;
+    }
+    else if(rpm < 0) {
+        rpm_conv = (y2 - y1)/MAX_SPEED + y1;
+    }
+    else rpm_conv = (y2 + y3)/2;
 
-// !控制相关参数
-float ac_p, bc_p, ac_n, bc_n, ac, bc;//当前与上一时刻（角）加速度值
-float dt;//更新频率对应的时间
-float threshold;//用于衰减判定
-float dv;//用于实际衰减
-// 根据放大的情况
-vthreshold = 1.0;
-dv = 0.5;
-
-// !其他参数
-int i; //用于循环
-int MAX_SPEED = 4000; //电机最高转速
+    return int(rpm_conv);
+}
 
 void callback(const sensor_msgs::Joy::ConstPtr& msg){
+    // !控制相关参数
+    float ac_p, bc_p, ac_n, bc_n, ac, bc;//当前与上一时刻（角）加速度值
+    float dt = 0.02;//更新频率50Hz对应的时间
+    // 根据放大的情况
+    float vthreshold = 1.0;//用于衰减判定
+    float dv = 0.5;//用于实际衰减
+
+
+    // !其他参数
+    int i; //用于循环
+   
     //读取摇杆进行解算
-    ac_n = a_scale_*joy->axes[angular_];
-    bc_n = linear.x = l_scale_*joy->axes[linear_];
+    ac_n = a_scale_*msg->axes[angular_];
+    bc_n =l_scale_*msg->axes[linear_];
 
     if(abs(ac_p - ac_n) <= vthreshold){
-    ac = ac_p - dv
+    ac = ac_p - dv;
     }
     else {
         ac = ac_n;
@@ -113,37 +122,16 @@ void callback(const sensor_msgs::Joy::ConstPtr& msg){
     }
 }
 
-//占空比与电机转速转换
-int rpm_convert(float rpm){
-    float y1; //负极限占空比
-    float y2; //静止对应占空比下限
-    float y3; //静止对应占空比上限
-    float y4; //正极限占空比
-    float k1, k2; //斜率
-    y1 = 1050.0;
-    y2 = 1413.0;
-    y3 = 1453.0;
-    y4 = 1975.0;
-    float rpm_conv;
-    if(rpm > 0) {
-        rpm_conv = (y4 - y3)/MAX_SPEED + y3;
-    }
-    else if(rpm < 0) {
-        rpm_conv = (y2 - y1)/MAX_SPEED + y1;
-    }
-    else rpm_conv = (y2 + y3)/2;
-
-    return int(rpm_conv);
-}
 
 //其他功能函数——处理电机转速以及串口
 //FL,FR,RL,RR
-void process_send_data(uint8_t* send_buffer){
-    float rpm_conv[2]
-    memcpy(rpm_conv, rec_buffer, 2);
-    memcpy(rpm_conv+1, rec_buffer+2, 2);
-    memcpy(rpm_conv, rec_buffer+4, 2);
-    memcpy(rpm_conv+1, rec_buffer+6, 2);
+void process_send_data(uint8_t *send_buffer){
+    float rpm_conv[2];
+
+    memcpy(rpm_conv, send_buffer, 2);
+    memcpy(rpm_conv+1, send_buffer+2, 2);
+    memcpy(rpm_conv, send_buffer+4, 2);
+    memcpy(rpm_conv+1, send_buffer+6, 2);
 }
 
 int main(int argc, char **argv)
@@ -152,6 +140,7 @@ int main(int argc, char **argv)
     wc = 0;
     ros::init(argc, argv, "pscontrol");//初始化节点
     ros::NodeHandle n;  //定义节点进程句柄
+
     n.param("axis_linear", linear_, linear_);
     n.param("axis_angular", angular_, angular_);
     n.param("scale_angular", a_scale_, a_scale_);
@@ -166,7 +155,7 @@ int main(int argc, char **argv)
     while(ros::ok())
     {      
         //向串口发送来的数据
-        process_send_data(uint8_t* send_buffer)
+        process_send_data(rpm_conv);
         ros::spinOnce();//周期执行
         loop_rate.sleep();//周期休眠
         //ros::spin();
