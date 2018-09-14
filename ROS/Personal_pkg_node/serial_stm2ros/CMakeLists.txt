@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  serial
 )
 
 ## System dependencies are found with CMake's conventions
@@ -118,7 +119,6 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
-  ../serial/include
 )
 
 ## Declare a C++ library
@@ -205,6 +205,5 @@ add_executable(serial_rw
 )
 add_dependencies(serial_rw ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(serial_rw
-  serial
   ${catkin_LIBRARIES}
 )

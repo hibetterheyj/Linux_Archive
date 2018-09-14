@@ -105,9 +105,15 @@ uint32_t read_proto(uint8_t* buffer){
 //回调函数
 void callback(const std_msgs::UInt8MultiArray::ConstPtr& msg){
      uint32_t length = msg->layout.dim[0].size;
+     unsigned char serial_data[8];
+     for (int i = 0; i < 8; i++)
+     {
+        serial_data[i] = msg->data[i];
+     }
+
      if (length == 8){
         ROS_INFO_STREAM("Write to serial port");
-        ros_ser.write(msg->data, length);
+        ros_ser.write(serial_data, length);
      }
  }
 
@@ -143,7 +149,7 @@ int main(int argc, char **argv)
     {
         ros_ser.setPort("/dev/ttyACM0");//小车串口号
         ros_ser.setBaudrate(115200);//小车串口波特率
-        serial::Timeout to = serial::Timeout::simpleTimeout(500);
+        serial::Timeout to = serial::Timeout::simpleTimeout(100);
         ros_ser.setTimeout(to);
         ros_ser.open();//配置串口
     }
@@ -166,9 +172,10 @@ int main(int argc, char **argv)
     {      
         //获取串口发送来的数据
         //数据与处理与判定
-    
+        ROS_INFO_STREAM("Running...");
         if(read_proto(rec_buffer)) //串口接收的数据长度正确就处理
         {
+            std::cout << "serial running..." << std::endl;
             process_received_data(rec_buffer);
             //开始进行数据处理s
             ros::spinOnce();//周期执行

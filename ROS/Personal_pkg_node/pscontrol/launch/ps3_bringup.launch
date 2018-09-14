@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <launch>
  <!-- serial Node-->
   <node pkg="serial_stm2ros" type="serial_rw" name="serial"/>
@@ -17,3 +18,26 @@
   <param name="scale_angular" value="2" type="double"/>
   <node pkg="pscontrol" type="pscontrol" name="ps3"/>
 </launch>
+||||||| merged common ancestors
+=======
+<launch>
+ <!-- serial Node-->
+ <node pkg="serial_stm2ros" type="serial_rw" name="serial" output="screen"/>
+  
+ <!-- joy node -->
+<node respawn="true" pkg="joy"
+      type="joy_node" name="joy">
+  <param name="dev" type="string" value="/dev/input/js0"/>
+  <param name="deadzone" value="0.10" />
+</node>
+
+ <!-- pscontrol node - Axes & Variable-->
+ <!--ps3设置速度控制为left-axis-upward，编号1;角度控制为right-axis-leftward.编号3-->
+ <!-- output="screen 主要用于screen打印　-->
+  <param name="axis_linear" value="1" type="int"/> //
+  <param name="axis_angular" value="2" type="int"/> //
+  <param name="scale_linear" value="0.8" type="double"/>
+  <param name="scale_angular" value="1.0" type="double"/>
+  <node pkg="pscontrol" type="pscontrol" name="ps3" output="screen"/>
+</launch>
+>>>>>>> 031e45ff24115005492eaab704cc5d009062ba10
