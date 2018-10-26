@@ -1,8 +1,8 @@
-### ROS Resources to know
+## ROS Resources to know
 
 ---
 
-**Wiki**
+### **Wiki**
 
 install recommended official wiki or chinese version:
 
@@ -13,18 +13,18 @@ English Version Recommended
 
 - http://wiki.ros.org/ROS/Tutorials
 
-**Preparation**
+### **Preparation**
 
 - Linux: http://www.ee.surrey.ac.uk/Teaching/Unix/
 - Cmake: https://github.com/Akagi201/learning-cmake
 
-**Zhihu:**
+### **Zhihu:**
 
 - [如何学习Ros？](https://www.zhihu.com/question/35788789)
 
 recommended: [ROS机器人操作系统的安装、配置与初级教程](https://www.shiyanlou.com/courses/854)
 
-**Mooc:**
+### **Mooc:**
 
 gitbook: https://sychaichangkun.gitbooks.io/ros-tutorial-icourse163/content/
 
@@ -32,7 +32,7 @@ github: https://github.com/DroidAITech/ROS-Academy-for-Beginners
 
 mooc: https://www.icourse163.org/course/ISCAS-1002580008#/info
 
-**Related Website**:
+### **Related Website**:
 
 - https://www.openrobotics.org/
 
@@ -43,3 +43,9 @@ mooc: https://www.icourse163.org/course/ISCAS-1002580008#/info
 `$ source ~/.zshrc`
 
 博文：[ROS 1 ---- 在zsh中安装ros](https://blog.csdn.net/qq_23225073/article/details/70137981)
+
+### **问题:**
+
+- `catkin_make`无法正确编译，可以安装`catkin_build`
+
+https://catkin-tools.readthedocs.io/en/latest/installing.html

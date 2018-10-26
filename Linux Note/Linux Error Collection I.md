@@ -48,3 +48,18 @@ dpkg: 处理软件包 initramfs-tools (--configure)时出错：
 ```
 
 解决方法：https://www.linuxidc.com/Linux/2014-11/109713.htm
+
+### IV. `sudo apt-get update`错误
+
+```
+E:Could not get lock /var/lib/apt/lists/lock - open (11: Resource temporarily unavailable)
+```
+
+输入一下命令：
+
+```
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+```
+
+解决方法：https://blog.csdn.net/zyxlinux888/article/details/6358615

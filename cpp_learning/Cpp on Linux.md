@@ -12,3 +12,13 @@ g++是GNU的C++编译器(GNU C++ Compiler)，也是GNU Compiler Collection的一
 ---
 
 - 开发环境搭建与第一个程序
+
+命令行,单文件
+
+```
+g++ -std=c++11
+```
+
+命令行,带`CMakelist.txt`
+
+可以使用KDevelop
