@@ -110,6 +110,8 @@ https://blog.csdn.net/weixin_28949825/article/details/79433925
 
 https://www.cnblogs.com/bovenson/p/5752213.html
 
+[**Ubuntu下安装cuda+cudnn**](https://blog.csdn.net/linhai1028/article/details/79451648)
+
 ```
 sudo apt-get install libprotobuf-dev libsnappy-dev  libhdf5-serial-dev protobuf-compiler
 sudo apt-get install --no-install-recommends libboost-all-dev
@@ -125,7 +127,7 @@ sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-d
     dpkg --force-depends -i libxext-dev_1.3.3-1_amd64.deb
     apt --fix-broken install
 
-nvidia cuda toolkit: https://developer.nvidia.com/cuda-80-ga2-download-archive
+- nvidia cuda toolkit: https://developer.nvidia.com/cuda-80-ga2-download-archive
 
 ```
 sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
@@ -133,12 +135,24 @@ sudo apt-get update
 sudo apt-get install cuda
 ```
 
-environment
+- environment setup
 
 ```
 echo 'export PATH=/usr/local/cuda-8.0/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
+```
+
+- verify
+
+```bash
+cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
+sudo make
+./deviceQuery
+
+cd ../bandwithTest
+sudo make
+./bandwithTest
 ```
 
 #### Cudnn
